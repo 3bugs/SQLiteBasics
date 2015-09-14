@@ -11,7 +11,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class MyHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "contacts.db";
-    private static final int DATABASE_VERSION = 2;
+    private static final int DATABASE_VERSION = 1;
 
     public static final String TABLE_NAME = "contacts";
     public static final String COL_ID = "_id";
@@ -25,12 +25,21 @@ public class MyHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-        String sqlCreateTable = "CREATE TABLE %s (" +
+        /*
+            คำสั่ง SQL ที่สมบูรณ์คือ
+                CREATE TABLE contacts (
+                    _id INTEGER PRIMARY KEY AUTOINCREMENT
+                    name TEXT,
+                    phone_number TEXT
+                )
+         */
+
+        String sqlTemp = "CREATE TABLE %s (" +
                 "%s INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "%s TEXT," +
                 "%s TEXT)";
 
-        sqlCreateTable = String.format(sqlCreateTable, TABLE_NAME, COL_ID, COL_NAME, COL_PHONE_NUMBER);
+        String sqlCreateTable = String.format(sqlTemp, TABLE_NAME, COL_ID, COL_NAME, COL_PHONE_NUMBER);
 
         db.execSQL(sqlCreateTable);
 

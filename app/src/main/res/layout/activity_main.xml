@@ -9,26 +9,26 @@
     tools:context=".MainActivity">
 
     <ListView
-        android:id="@+id/listView"
+        android:id="@+id/contacts_listview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/insert_button" />
 
     <Button
+        android:id="@+id/insert_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add"
-        android:id="@+id/insert_button"
-        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:text="Add Contact" />
 
     <Button
+        android:id="@+id/delete_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Delete"
-        android:id="@+id/delete_button"
         android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/insert_button"
         android:layout_toRightOf="@+id/insert_button"
-        android:layout_toEndOf="@+id/insert_button" />
+        android:text="Delete Contact(s)" />
 </RelativeLayout>
